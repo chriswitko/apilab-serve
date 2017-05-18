@@ -1,14 +1,15 @@
 const express = require('express')
+const path = require('path')
+const proxy = require('express-http-proxy')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const api = require('../api')
 const movies = require('../api/movies')
 
+const cacheTime = 86400000 * 7 // 7 days
+
 const start = (options) => {
   return new Promise((resolve, reject) => {
-    if (!options.repo) {
-      reject(new Error('The server must be started with a connected repository'))
-    }
     if (!options.port) {
       reject(new Error('The server must be started with an available port'))
     }
@@ -17,8 +18,15 @@ const start = (options) => {
     app.use(morgan('dev'))
     app.use(helmet())
 
+    app.use('/assets', express.static(path.join(process.cwd(), './src/assets'), { maxAge: cacheTime }))
+
     api(app, options)
     movies(app, options)
+
+    app.use('/', proxy('http://localhost:' + options.filesPort, {
+      preserveHostHdr: true,
+      timeout: 10000
+    }))
 
     app.use((err, req, res, next) => {
       reject(new Error('Something went wrong!, err:' + err))
@@ -26,6 +34,7 @@ const start = (options) => {
     })
 
     const server = app.listen(options.port, () => resolve(server))
+    console.log(`Server connected listening on port ${options.port}`)
   })
 }
 

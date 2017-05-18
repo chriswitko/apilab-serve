@@ -1,7 +1,7 @@
 {
-  "name": "apilab",
-  "version": "1.0.2",
-  "description": "A sample api server, microservice",
+  "name": "apilab-serve",
+  "version": "1.0.0",
+  "description": "Static file serving and directory listing",
   "author": "Chris Witko <chris.witko@gmail.com>",
   "license": "ISC",
   "main": "index.js",
@@ -39,11 +39,32 @@
     "supertest": "^2.0.1"
   },
   "dependencies": {
+    "args": "3.0.1",
     "babel-eslint": "^7.2.3",
+    "basic-auth": "1.1.0",
+    "bluebird": "3.5.0",
+    "boxen": "1.1.0",
+    "chalk": "1.1.3",
+    "clipboardy": "1.1.2",
+    "dargs": "5.1.0",
+    "detect-port": "1.1.2",
     "express": "^4.15.2",
+    "express-http-proxy": "^1.0.3",
+    "filesize": "3.5.9",
+    "fs-promise": "2.0.3",
+    "handlebars": "4.0.8",
     "helmet": "^3.4.0",
     "http-status": "^0.2.5",
+    "ip": "1.1.5",
+    "micro": "7.3.3",
+    "micro-compress": "1.0.0",
+    "mime-types": "2.1.15",
     "mongodb": "^2.1.18",
-    "morgan": "^1.7.0"
+    "morgan": "^1.7.0",
+    "node-version": "1.0.0",
+    "path-type": "2.0.0",
+    "send": "0.15.3",
+    "serve-index": "^1.8.0",
+    "update-notifier": "2.1.0"
   }
 }

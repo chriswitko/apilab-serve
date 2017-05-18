@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Files within {{directory}}</title>
+
+    <link rel="stylesheet" href="{{assetDir}}/styles.css">
+  </head>
+
+  <body>
+    <main>
+      <h1>
+        <i>Index of&nbsp;</i>
+
+        {{#each paths}}
+          <a href="/{{url}}">{{name}}</a>
+        {{/each}}
+      </h1>
+
+      {{#if isBuildFolder}}
+      <a href="#">Download</a> &middot; <a href="#">Archive</a> &middot; <a href="#">Publish</a> &middot; <a href="#">Duplicate</a> &middot; <a href="#">Delete</a> &middot; <a href="#">Insights <small>(JSON)</small></a>
+      {{/if}}
+
+      <ul>
+        {{#each files}}
+          <li>
+            <a href="/{{relative}}" title="{{title}}" class="{{ext}}">{{base}}</a>
+            <i>{{size}}</i>
+          </li>
+        {{/each}}
+      </ul>
+
+      {{#if isBuildFolder}}
+      <p><br /></p>
+      Versions
+      <ul class="block">
+        <li>
+          @2.0.0 - 18.05.2017 14:55 - <a class="action" href="#">Checkout</a> &middot; <a class="action" href="#">Download</a></1>
+        </li>
+        <li>
+          @1.0.0 - 18.05.2017 14:55 - <a class="action" href="#">Checkout</a> &middot; <a class="action" href="#">Download</a></1>
+        </li>
+      </ul>
+
+      <p><br /></p>
+      History
+      <ul class="block">
+        <li>
+          18.05.2017 13:54 - Folder created by Chris Witko
+        </li>
+        <li>
+          18.05.2017 14:02 - Files updated by Chris Witko
+        </li>
+        <li>
+          18.05.2017 14:55 - Created version @1.0.0 by Chris Witko
+        </li>
+        <li>
+          18.05.2017 14:16 - Published to <a href="#" class="folder">Akamai CDN</a> by Chris Witko
+        </li>
+        <li>
+          18.05.2017 14:23 - <a href="#" class="folder">Duplicate folder created</a>
+        </li>
+      </ul>
+      {{/if}}
+
+    </main>
+  </body>
+</html>

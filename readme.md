@@ -1,14 +1,12 @@
-## Build a NodeJS microservice and deploy it to Docker
+## Static file serving and directory listing
 
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 
-Example of the **api server** microservice and API.
+Static file serving and directory listing.
 
 ### Stack
 - NodeJS V7
 - ES6
-- MongoDB 3.4.1
-- Docker for Mac 1.12.6
 - Jest
 - Mocha
 
