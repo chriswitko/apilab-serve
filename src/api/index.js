@@ -11,10 +11,30 @@ module.exports = (app, options) => {
     }, res)
   })
 
+  // get the list of the assets
+  app.get('/api/list', (req, res, next) => {
+    ResponseInterceptor({
+      status: 'list'
+    }, res)
+  })
+
   // download zipped folder
   app.get('/api/download', (req, res, next) => {
     ResponseInterceptor({
       status: 'download'
+    }, res)
+  })
+
+  // app.get('/*/@:id', (req, res, next) => {
+  //   ResponseInterceptor({
+  //     status: 'single version'
+  //   }, res)
+  // })
+
+  // rename asset
+  app.put('/api/rename', (req, res, next) => {
+    ResponseInterceptor({
+      status: 'list'
     }, res)
   })
 
@@ -45,11 +65,6 @@ module.exports = (app, options) => {
     }, res)
   })
 
-  app.get('/*/@:id', (req, res, next) => {
-    ResponseInterceptor({
-      status: 'single version'
-    }, res)
-  })
   // POST: upload
 
   // app.get('/version/:id/download', (req, res, next) => {

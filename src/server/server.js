@@ -28,6 +28,10 @@ const start = (options) => {
       timeout: 10000
     }))
 
+    app.use((req, res, next) => {
+      res.sendfile(path.join(__dirname, '../assets/404.html'))
+    })
+
     app.use((err, req, res, next) => {
       reject(new Error('Something went wrong!, err:' + err))
       res.status(500).send('Something went wrong!')
